@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#4c4546",
+            "secondary-container": "#e1dfdf",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e2e2e2",
+            "on-secondary-fixed": "#1b1c1c",
+            "tertiary": "#000000",
+            "surface-container-low": "#f4f3f3",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#1a1c1c",
+            "on-primary-fixed": "#1b1b1b",
+            "on-tertiary-fixed-variant": "#474747",
+            "outline-variant": "#cfc4c5",
+            "on-error": "#ffffff",
+            "surface-bright": "#f9f9f9",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e2e2e2",
+            "background": "#f9f9f9",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#c7c6c6",
+            "on-primary-fixed-variant": "#474747",
+            "surface-dim": "#dadada",
+            "on-primary-container": "#848484",
+            "inverse-primary": "#c6c6c6",
+            "tertiary-container": "#1b1b1b",
+            "primary": "#000000",
+            "on-secondary-fixed-variant": "#464747",
+            "surface-container-high": "#e8e8e8",
+            "surface-container": "#eeeeee",
+            "surface": "#f9f9f9",
+            "on-secondary-container": "#626262",
+            "tertiary-fixed": "#e2e2e2",
+            "secondary": "#5e5e5e",
+            "on-surface": "#1a1c1c",
+            "primary-container": "#1b1b1b",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2f3131",
+            "on-tertiary-fixed": "#1b1b1b",
+            "secondary-fixed": "#e4e2e2",
+            "outline": "#7e7576",
+            "inverse-on-surface": "#f1f1f1",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#5e5e5e",
+            "on-tertiary-container": "#848484",
+            "primary-fixed": "#e2e2e2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "8px",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "max_width": "375px",
+            "margin": "24px",
+            "gutter": "16px",
+            "columns": "4",
+            "unit": "8px"
+          },
+          "fontFamily": {
+            "label": ["Inter"],
+            "title": ["Inter"],
+            "body": ["Inter"]
+          },
+          "fontSize": {
+            "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col items-center">
+<!-- Main Canvas (Mobile 375px Container) -->
+<main class="w-full max-w-[375px] min-h-[812px] bg-white relative flex flex-col pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 max-w-[375px] w-full z-50 bg-surface border-b border-outline-variant flex items-center justify-between px-margin h-14">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">arrow_back</span>
+<span class="font-title text-title text-primary">PatchUp</span>
+</div>
+<div class="text-secondary font-label text-[12px] opacity-50">ID S-50</div>
+</header>
+<!-- Content Area -->
+<div class="mt-14 px-margin flex flex-col gap-unit">
+<!-- Tutorial Title Section -->
+<section class="pt-8">
+<h1 class="font-title text-title text-primary">DIY Tutorial</h1>
+<div class="h-1 w-12 bg-primary mt-2"></div>
+</section>
+<!-- Step-by-Step Visualization (Bento-style layout for steps) -->
+<section class="mt-6 space-y-6">
+<!-- Step 1 -->
+<div class="flex flex-col gap-4 p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label text-label text-secondary">Step 01</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">power_off</span>
+</div>
+<div class="font-body text-body text-primary font-semibold">1. Unplug device</div>
+<div class="w-full aspect-video bg-surface-container border border-outline-variant rounded flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="A clean, minimalist high-angle shot of a power cord being disconnected from a wall outlet. The scene is captured in a stark, light-mode aesthetic with bright white walls and soft, neutral shadows. The focus is sharp on the hand and the plug, using a grayscale palette to emphasize the functional safety aspect of the tutorial. The lighting is clinical and bright, following a professional Lo-Fi design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ0D7iP8ZQTDMDhDi3T7vTs4J2kVRXDaCbUV2vDDcrWIIMN4Fx_aHR0Ti9tYxSuc5P5EXuFZEpbvvHEX4LkgRWoKtINYS9Kof7CwdT75kkHchrcBs-Ek4pkUnAIL7DuISXKK1ho9A-yC1K2RRp44Lgy7Lfp2oi8dDnjwkbqQY317tFxPYpUFV1-1gwZELX2Jy5qMmO6ShlOjI6jyfru1d7vC7fm8uHhfi1UhDCbqJiW7G3N_J7yldciVJGn3LZd1fYCOzpKZn5gvc1"/>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-4 p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label text-label text-secondary">Step 02</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">build</span>
+</div>
+<div class="font-body text-body text-primary font-semibold">2. Remove base screws</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square bg-surface-container border border-outline-variant rounded flex flex-col items-center justify-center text-center p-2">
+<span class="material-symbols-outlined text-secondary mb-1">tools_wrench</span>
+<span class="text-[10px] font-label text-secondary uppercase tracking-wider">Philips Head</span>
+</div>
+<div class="aspect-square bg-surface-container border border-outline-variant rounded flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="A macro photograph of small industrial screws being removed from a metal surface with a screwdriver. The visual style is strictly grayscale and minimalist, with high contrast between the metallic elements and the light surface. The lighting is diffused and even, creating a technical, diagrammatic feel suitable for a repair manual. The overall mood is focused and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa-CVDwLbSJU5NCkm5SpXJnJRGEAQVkwBFgFI3yUn5GH0sv6gwLYCS2i0WmFE3O_bNISYJ5QsV2jHIPujRZ_K26Yz8Rhb0rWgQFuW9RI73Od0TA7Q9gAbJY_dEzAEKSC4Xdp_ZJ709lmLWtZQ52hbubcdh69baJlVtsTf1_8HG8gqtTlqIsCAbsUbT46USXj70HCCUslzf-vZVycMwujRamccmTsk-gHwTpSOFrRlZdBhl3RuEy6unsfRZuor8cqLfk5-RfINjg3JC"/>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-4 p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label text-label text-secondary">Step 03</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+</div>
+<div class="font-body text-body text-primary font-semibold">3. Check continuity</div>
+<div class="p-4 bg-surface-container border-l-4 border-primary rounded-r">
+<p class="font-body text-label text-secondary leading-relaxed">
+              Use a multimeter set to the continuity mode. Touch probes to both ends of the fuse terminal.
+            </p>
+</div>
+</div>
+<!-- Safety Note -->
+<div class="p-4 bg-white border-2 border-primary rounded-lg flex items-start gap-3 mt-4">
+<span class="material-symbols-outlined text-primary">warning</span>
+<div>
+<p class="font-label text-label text-primary font-bold">Safety Note</p>
+<p class="font-body text-label text-secondary">High voltage area. Ensure capacitors are discharged before touching internal components.</p>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<section class="mt-12 mb-8">
+<button class="w-full h-14 bg-primary text-on-primary font-label text-label rounded-lg active:scale-[0.98] transition-transform shadow-none">
+          Finish Tutorial
+        </button>
+</section>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 max-w-[375px] w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 px-margin">
+<div class="flex flex-col items-center justify-center text-secondary active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label text-[10px]">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-[10px]">Profile</span>
+</div>
+</nav>
+</main>
+<script>
+    // Micro-interaction for steps completion
+    document.querySelectorAll('.border-outline-variant').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('bg-surface-container-low');
+        const icon = this.querySelector('.material-symbols-outlined');
+        if (icon && icon.innerText !== 'check_circle') {
+          // Store original
+          if(!this.dataset.origIcon) this.dataset.origIcon = icon.innerText;
+          icon.innerText = icon.innerText === 'check_circle' ? this.dataset.origIcon : 'check_circle';
+        } else if (icon) {
+          icon.innerText = this.dataset.origIcon;
+        }
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatchUp Lo-Fi Flow Board</title>
+  <style>
+    :root {
+      --card-w: 220px;
+      --img-h: 300px;
+      --meta-h: 52px;
+      --col-step: 300px;
+      --row-step: 380px;
+      --pad: 56px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #e8e8e8; color: #1a1a1a; }
+    .top {
+      padding: 14px 20px;
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .top h1 { margin: 0; font-size: 17px; }
+    .top p { margin: 6px 0 0; font-size: 12px; color: #555; max-width: 80ch; }
+    .status { margin-top: 6px; font-size: 12px; font-weight: 600; color: #0a6b0a; }
+    .legend { margin-top: 8px; font-size: 11px; color: #666; }
+    .legend span { margin-right: 16px; }
+    .legend .solid::before, .legend .dash::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 0;
+      border-top: 2px solid #333;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    .legend .dash::before { border-top-style: dashed; border-color: #888; }
+    .wrap { overflow: auto; height: calc(100vh - 120px); padding: 16px; }
+    .canvas {
+      position: relative;
+      background:
+        linear-gradient(#ddd 1px, transparent 1px),
+        linear-gradient(90deg, #ddd 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+    }
+    #arrows { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible; }
+    .layer { position: absolute; inset: 0; z-index: 2; }
+    .col-label {
+      position: absolute;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      white-space: nowrap;
+    }
+    .card {
+      position: absolute;
+      width: var(--card-w);
+      background: #fff;
+      border: 2px solid #bdbdbd;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .card img {
+      width: 100%;
+      height: var(--img-h);
+      object-fit: contain;
+      object-position: top center;
+      display: block;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .meta { padding: 10px 12px; min-height: var(--meta-h); }
+    .meta b { display: block; font-size: 13px; margin-bottom: 2px; }
+    .meta span { font-size: 11px; color: #555; line-height: 1.3; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>PatchUp Lo-Fi User Flow</h1>
+    <p>Putanje = tačno <code>design/lofi/flow-board-paths.md</code> (38 glavnih + 7 retry). Sign in (S-10) → Home (S-30), ne registracija.</p>
+    <div class="status" id="status"></div>
+    <div class="legend">
+      <span class="solid">glavni tok</span>
+      <span class="dash">greška / retry</span>
+    </div>
+  </div>
+  <div class="wrap" id="wrap">
+    <div class="canvas" id="canvas">
+      <svg id="arrows"></svg>
+      <div class="layer" id="layer"></div>
+    </div>
+  </div>
+
+  <script>
+    // slug, screenId, title, col, row — Sign in i Registration u RAZLIČITIM kolonama
+    const nodes = [
+      ["s-00-welcome", "S-00", "Welcome", 0, 0],
+      ["s-01-account-check", "S-01", "Account", 0, 1],
+      ["s-10-sign-in", "S-10", "Sign in", 1, 0],
+      ["s-20-registration-method", "S-20", "Create account", 2, 1],
+      ["s-23-registration-step-1", "S-23a", "Registration step 1", 3, 0],
+      ["s-23-step-1-error-state", "S-23a-err", "Registration error", 3, 1],
+      ["s-23-registration-step-2", "S-23b", "Registration step 2", 3, 2],
+      ["s-23-registration-summary", "S-23c", "Registration summary", 3, 3],
+      ["s-30-home-hub", "S-30", "Home", 4, 1],
+      ["s-40-scan-item", "S-40", "Scan item", 5, 0],
+      ["s-44-describe-fault", "S-44", "Describe fault", 5, 1],
+      ["s-43e-error-not-recognized", "S-43e", "Not recognized", 5, 2],
+      ["s-46-ai-diagnosis-result", "S-46", "AI diagnosis", 6, 0],
+      ["s-49-choose-repair-path", "S-49", "Repair options", 6, 1],
+      ["s-50-diy-tutorial", "S-50", "DIY tutorial", 7, 0],
+      ["s-60-community-list", "S-60", "Community list", 8, 0],
+      ["s-61-caf-detail", "S-61", "Café detail", 8, 1],
+      ["s-62-help-request-step-1", "S-62a", "Help step 1", 8, 2],
+      ["s-62-step-1-error-state", "S-62a-err", "Help error", 8, 3],
+      ["s-62-help-request-step-2", "S-62b", "Help step 2", 8, 4],
+      ["s-62-help-request-summary", "S-62c", "Help summary", 8, 5],
+      ["s-63-request-sent-confirmation", "S-63", "Request sent", 8, 6],
+      ["s-70-not-worth-repairing", "S-70", "Not worth repairing", 9, 0],
+      ["s-80-record-outcome-step-1", "S-80a", "Outcome step 1", 10, 0],
+      ["s-80-record-outcome-step-2", "S-80b", "Outcome step 2", 10, 1],
+      ["s-80-outcome-summary", "S-80c", "Outcome summary", 10, 2],
+      ["s-90-repair-history-list", "S-90", "History", 11, 0],
+      ["s-100-profile", "S-100", "Profile", 11, 1],
+      ["s-101-edit-profile-step-1", "S-101a", "Edit profile step 1", 11, 2],
+      ["s-101-edit-profile-step-1-error", "S-101a-err", "Edit profile error", 11, 3],
+      ["s-101-edit-profile-step-2", "S-101b", "Edit profile step 2", 11, 4],
+      ["s-101-edit-profile-summary", "S-101c", "Edit profile summary", 11, 5],
+      ["s-110-settings", "S-110", "Settings", 11, 6],
+    ];
+
+    const COL_LABELS = [
+      "F0 Entry", "Sign in", "Registration", "Reg steps", "Home",
+      "Scan", "Diagnosis", "DIY", "Community", "Not worth", "Outcome",
+      "History · Profile"
+    ];
+
+    // Tačno iz flow-board-paths.md
+    const edgesSolid = [
+      ["s-00-welcome", "s-01-account-check"],
+      ["s-01-account-check", "s-10-sign-in"],
+      ["s-01-account-check", "s-20-registration-method"],
+      ["s-10-sign-in", "s-30-home-hub"],
+      ["s-20-registration-method", "s-23-registration-step-1"],
+      ["s-23-registration-step-1", "s-23-registration-step-2"],
+      ["s-23-registration-step-2", "s-23-registration-summary"],
+      ["s-23-registration-summary", "s-30-home-hub"],
+      ["s-30-home-hub", "s-40-scan-item"],
+      ["s-30-home-hub", "s-90-repair-history-list"],
+      ["s-30-home-hub", "s-100-profile"],
+      ["s-30-home-hub", "s-110-settings"],
+      ["s-40-scan-item", "s-44-describe-fault"],
+      ["s-44-describe-fault", "s-46-ai-diagnosis-result"],
+      ["s-44-describe-fault", "s-43e-error-not-recognized"],
+      ["s-46-ai-diagnosis-result", "s-49-choose-repair-path"],
+      ["s-49-choose-repair-path", "s-50-diy-tutorial"],
+      ["s-49-choose-repair-path", "s-60-community-list"],
+      ["s-49-choose-repair-path", "s-70-not-worth-repairing"],
+      ["s-50-diy-tutorial", "s-80-record-outcome-step-1"],
+      ["s-60-community-list", "s-61-caf-detail"],
+      ["s-61-caf-detail", "s-62-help-request-step-1"],
+      ["s-62-help-request-step-1", "s-62-help-request-step-2"],
+      ["s-62-help-request-step-2", "s-62-help-request-summary"],
+      ["s-62-help-request-summary", "s-63-request-sent-confirmation"],
+      ["s-63-request-sent-confirmation", "s-30-home-hub"],
+      ["s-63-request-sent-confirmation", "s-80-record-outcome-step-1"],
+      ["s-70-not-worth-repairing", "s-30-home-hub"],
+      ["s-70-not-worth-repairing", "s-80-record-outcome-step-1"],
+      ["s-80-record-outcome-step-1", "s-80-record-outcome-step-2"],
+      ["s-80-record-outcome-step-2", "s-80-outcome-summary"],
+      ["s-80-outcome-summary", "s-90-repair-history-list"],
+      ["s-80-outcome-summary", "s-30-home-hub"],
+      ["s-100-profile", "s-101-edit-profile-step-1"],
+      ["s-101-edit-profile-step-1", "s-101-edit-profile-step-2"],
+      ["s-101-edit-profile-step-2", "s-101-edit-profile-summary"],
+      ["s-101-edit-profile-summary", "s-100-profile"],
+      ["s-90-repair-history-list", "s-30-home-hub"],
+    ];
+
+    const edgesDash = [
+      ["s-23-registration-step-1", "s-23-step-1-error-state"],
+      ["s-23-step-1-error-state", "s-23-registration-step-1"],
+      ["s-43e-error-not-recognized", "s-40-scan-item"],
+      ["s-62-help-request-step-1", "s-62-step-1-error-state"],
+      ["s-62-step-1-error-state", "s-62-help-request-step-1"],
+      ["s-101-edit-profile-step-1", "s-101-edit-profile-step-1-error"],
+      ["s-101-edit-profile-step-1-error", "s-101-edit-profile-step-1"],
+    ];
+
+    const HUB = "s-30-home-hub";
+
+    const wrap = document.getElementById("wrap");
+    const canvas = document.getElementById("canvas");
+    const layer = document.getElementById("layer");
+    const svg = document.getElementById("arrows");
+    const bySlug = new Map();
+    const meta = new Map();
+
+    const pad = 56;
+    const colStep = 300;
+    const rowStep = 380;
+
+    const maxCol = Math.max(...nodes.map((n) => n[3])) + 1;
+    const maxRow = Math.max(...nodes.map((n) => n[4])) + 1;
+    canvas.style.width = `${pad * 2 + maxCol * colStep}px`;
+    canvas.style.height = `${pad * 2 + maxRow * rowStep}px`;
+
+    for (let c = 0; c < maxCol; c++) {
+      const lab = document.createElement("div");
+      lab.className = "col-label";
+      lab.textContent = COL_LABELS[c] || `Col ${c}`;
+      lab.style.left = `${pad + c * colStep}px`;
+      lab.style.top = `${pad - 30}px`;
+      layer.appendChild(lab);
+    }
+
+    for (const [slug, sid, title, col, row] of nodes) {
+      const el = document.createElement("article");
+      el.className = "card";
+      el.id = slug;
+      el.style.left = `${pad + col * colStep}px`;
+      el.style.top = `${pad + row * rowStep}px`;
+      el.innerHTML = `
+        <img src="screenshots/${slug}.png" alt="${sid}" width="220" height="300" />
+        <div class="meta"><b>${sid}</b><span>${title}</span></div>
+      `;
+      bySlug.set(slug, el);
+      meta.set(slug, { sid, col, row });
+      layer.appendChild(el);
+    }
+
+    function anchor(el, side, frac = 0.5) {
+      const r = el.getBoundingClientRect();
+      const c = canvas.getBoundingClientRect();
+      const x0 = r.left - c.left + canvas.scrollLeft;
+      const y0 = r.top - c.top + canvas.scrollTop;
+      const y = y0 + r.height * frac;
+      if (side === "right") return { x: x0 + r.width, y };
+      if (side === "left") return { x: x0, y };
+      if (side === "bottom") return { x: x0 + r.width * frac, y: y0 + r.height };
+      if (side === "top") return { x: x0 + r.width * frac, y: y0 };
+      return { x: x0 + r.width / 2, y };
+    }
+
+    // Eksplicitno usmeravanje — sprečava vizuelne greške (npr. S-10 → S-20)
+    function routeSpec(from, to) {
+      const a = meta.get(from);
+      const b = meta.get(to);
+      if (!a || !b) return null;
+
+      const key = `${from}|${to}`;
+
+      const hubIn = to === HUB;
+      const hubOut = from === HUB;
+
+      if (from === "s-01-account-check" && to === "s-10-sign-in") {
+        return { fromSide: "right", fromFrac: 0.32, toSide: "left", toFrac: 0.5 };
+      }
+      if (from === "s-01-account-check" && to === "s-20-registration-method") {
+        return { fromSide: "right", fromFrac: 0.72, toSide: "left", toFrac: 0.5 };
+      }
+      if (from === "s-10-sign-in" && to === HUB) {
+        return { kind: "lane-top", fromSide: "right", fromFrac: 0.5, toSide: "left", toFrac: 0.42 };
+      }
+      if (hubOut && to === "s-40-scan-item") {
+        return { fromSide: "right", fromFrac: 0.28, toSide: "left", toFrac: 0.5 };
+      }
+      if (hubOut && to === "s-90-repair-history-list") {
+        return { fromSide: "right", fromFrac: 0.45, toSide: "left", toFrac: 0.2 };
+      }
+      if (hubOut && to === "s-100-profile") {
+        return { fromSide: "right", fromFrac: 0.55, toSide: "left", toFrac: 0.45 };
+      }
+      if (hubOut && to === "s-110-settings") {
+        return { fromSide: "right", fromFrac: 0.72, toSide: "left", toFrac: 0.75 };
+      }
+      if (hubIn) {
+        return { fromSide: "right", fromFrac: 0.5, toSide: "left", toFrac: 0.5 };
+      }
+
+      if (a.col === b.col) {
+        return { fromSide: "bottom", fromFrac: 0.5, toSide: "top", toFrac: 0.5 };
+      }
+      if (b.col > a.col) {
+        return { fromSide: "right", fromFrac: 0.5, toSide: "left", toFrac: 0.5 };
+      }
+      return { fromSide: "left", fromFrac: 0.5, toSide: "right", toFrac: 0.5 };
+    }
+
+    function pathD(from, to) {
+      const spec = routeSpec(from, to);
+      if (!spec) return null;
+      const elA = bySlug.get(from);
+      const elB = bySlug.get(to);
+      const p1 = anchor(elA, spec.fromSide, spec.fromFrac);
+      const p2 = anchor(elB, spec.toSide, spec.toFrac);
+
+      if (spec.kind === "lane-top") {
+        const rA = elA.getBoundingClientRect();
+        const rB = elB.getBoundingClientRect();
+        const c = canvas.getBoundingClientRect();
+        const topA = rA.top - c.top + canvas.scrollTop;
+        const topB = rB.top - c.top + canvas.scrollTop;
+        const laneY = Math.min(topA, topB) - 28;
+        return `M ${p1.x} ${p1.y} L ${p1.x} ${laneY} L ${p2.x} ${laneY} L ${p2.x} ${p2.y}`;
+      }
+
+      const midX = (p1.x + p2.x) / 2;
+      const midY = (p1.y + p2.y) / 2;
+      if (spec.fromSide === "bottom") {
+        return `M ${p1.x} ${p1.y} L ${p1.x} ${midY} L ${p2.x} ${midY} L ${p2.x} ${p2.y}`;
+      }
+      return `M ${p1.x} ${p1.y} L ${midX} ${p1.y} L ${midX} ${p2.y} L ${p2.x} ${p2.y}`;
+    }
+
+    function draw() {
+      svg.setAttribute("width", canvas.offsetWidth);
+      svg.setAttribute("height", canvas.offsetHeight);
+      svg.innerHTML = `<defs>
+        <marker id="arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+        </marker>
+        <marker id="arrD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#777"/>
+        </marker>
+      </defs>`;
+
+      const label = (from, to, dashed) => {
+        const d = pathD(from, to);
+        if (!d) return;
+        const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        p.setAttribute("d", d);
+        p.setAttribute("fill", "none");
+        p.setAttribute("stroke", dashed ? "#888" : "#222");
+        p.setAttribute("stroke-width", dashed ? "1.5" : "2");
+        if (dashed) p.setAttribute("stroke-dasharray", "6 4");
+        p.setAttribute("marker-end", dashed ? "url(#arrD)" : "url(#arrS)");
+        svg.appendChild(p);
+      };
+
+      for (const [a, b] of edgesSolid) label(a, b, false);
+      for (const [a, b] of edgesDash) label(a, b, true);
+    }
+
+    function validate() {
+      const mustSolid = 38;
+      const mustDash = 7;
+      const critical = [
+        ["s-10-sign-in", "s-30-home-hub", "S-10 mora ići na S-30 Home, ne na S-20"],
+        ["s-01-account-check", "s-10-sign-in", "S-01 → S-10 sign in"],
+        ["s-01-account-check", "s-20-registration-method", "S-01 → S-20 reg (ne S-10)"],
+      ];
+      const bad = critical.filter(([f, t]) => !edgesSolid.some(([a, b]) => a === f && b === t));
+      const el = document.getElementById("status");
+      if (edgesSolid.length !== mustSolid || edgesDash.length !== mustDash || bad.length) {
+        el.style.color = "#b00020";
+        el.textContent = `GREŠKA: solid=${edgesSolid.length}/${mustSolid} dash=${edgesDash.length}/${mustDash}`;
+        return;
+      }
+      el.textContent = `✓ ${mustSolid} glavnih + ${mustDash} retry putanja (usklađeno sa markdownom)`;
+    }
+
+    function ready() {
+      validate();
+      return Promise.all(
+        [...layer.querySelectorAll("img")].map(
+          (img) =>
+            new Promise((res) => {
+              if (img.complete) res();
+              else {
+                img.onload = res;
+                img.onerror = res;
+              }
+            })
+        )
+      ).then(draw);
+    }
+
+    window.addEventListener("load", ready);
+    window.addEventListener("resize", draw);
+    wrap.addEventListener("scroll", draw, { passive: true });
+  </script>
+</body>
+</html>

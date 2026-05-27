@@ -1,0 +1,8 @@
+{
+  "name": "PatchUp — Prototype Links",
+  "id": "patchup-prototype-links",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>S-60 · Repair cafés nearby</title>
+  <style>
+/* PatchUp Lo-Fi — HCI v05/v06 compliant (grayscale only) */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --muted: #ebebeb;
+  --border: #d4d4d4;
+  --border-strong: #a3a3a3;
+  --ink: #1c1c1c;
+  --soft: #5c5c5c;
+  --placeholder: #8a8a8a;
+  --primary: #2b2b2b;
+  --on-primary: #ffffff;
+  --disabled: #e5e5e5;
+  --radius: 8px;
+  --margin: 24px;
+  --gutter: 16px;
+  --gap: 8px;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html, body {
+  width: 375px;
+  min-height: 812px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.screen {
+  width: 375px;
+  min-height: 812px;
+  background: var(--bg);
+  padding: 0 var(--margin) 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.screen-id {
+  position: absolute;
+  top: var(--gap);
+  right: 12px;
+  font-size: 11px;
+  color: var(--placeholder);
+  font-weight: 500;
+}
+
+.topbar {
+  padding-top: 48px;
+  margin-bottom: var(--gap);
+}
+
+.topbar .back {
+  font-size: 14px;
+  color: var(--soft);
+  margin-bottom: var(--gap);
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--soft);
+  margin-bottom: var(--gap);
+}
+
+.lead {
+  font-size: 16px;
+  color: var(--soft);
+  margin-bottom: 16px;
+  max-width: 36ch;
+}
+
+.step-label {
+  font-size: 12px;
+  color: var(--soft);
+  margin-bottom: var(--gap);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--soft);
+  margin-bottom: var(--gap);
+}
+
+.note-strong {
+  font-size: 12px;
+  color: var(--ink);
+  margin-bottom: var(--gap);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* Input frame (Figma: use Frame + Auto Layout inside) */
+.input-frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  margin-bottom: var(--gap);
+  background: var(--bg);
+}
+
+.input-frame.error {
+  border-color: var(--border-strong);
+  border-width: 2px;
+}
+
+.field {
+  width: 100%;
+  min-height: 40px;
+  font-size: 16px;
+  color: var(--placeholder);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.field.textarea {
+  min-height: 72px;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--placeholder);
+  margin-top: 4px;
+}
+
+.placeholder-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--placeholder);
+  margin-bottom: var(--gap);
+}
+
+.placeholder-img.square {
+  aspect-ratio: 1;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.spacer { flex: 1; }
+
+.btn {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 44px;
+  border: none;
+  margin-bottom: var(--gap);
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background: var(--disabled);
+  color: var(--placeholder);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  line-height: 42px;
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--soft);
+  border: none;
+  min-height: auto;
+  line-height: 1.4;
+}
+
+.block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gutter);
+  margin-bottom: var(--gap);
+}
+
+.block-muted {
+  background: var(--muted);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--gap);
+  font-size: 14px;
+}
+
+.row .k { color: var(--soft); }
+
+.list-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.list-row:last-child { border-bottom: none; }
+
+.list-body { flex: 1; }
+
+.list-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+
+.list-meta { font-size: 12px; color: var(--soft); }
+
+.chevron { font-size: 14px; color: var(--soft); align-self: center; }
+
+.path-row {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px var(--gutter);
+  margin-bottom: var(--gap);
+}
+
+.path-row.selected {
+  background: var(--muted);
+  border-color: var(--border-strong);
+}
+
+.path-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+
+.path-desc { font-size: 12px; color: var(--soft); }
+
+.steps { margin-bottom: var(--gap); }
+
+.step {
+  font-size: 14px;
+  margin-bottom: var(--gap);
+  padding-left: 8px;
+  border-left: 2px solid var(--border);
+}
+
+.bar-track {
+  height: 8px;
+  background: var(--muted);
+  border-radius: 4px;
+  margin: 4px 0 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 55%;
+  background: var(--border-strong);
+}
+
+.link {
+  font-size: 12px;
+  color: var(--soft);
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--muted);
+  position: relative;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.success-banner {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  font-size: 14px;
+  margin-bottom: var(--gap);
+  background: var(--muted);
+}
+
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <span class="screen-id">S-60</span>
+    <header class="topbar">
+      <p class="back">Back</p>
+      <h1>Repair cafés nearby</h1>
+      
+    </header>
+    
+    <div class="list-row"><div class="placeholder-img square">Img</div><div class="list-body"><div class="list-title">Repair Café Novi Sad</div><div class="list-meta">2.1 km · Sat 10:00</div></div><span class="chevron">›</span></div>
+    <div class="list-row"><div class="placeholder-img square">Img</div><div class="list-body"><div class="list-title">Community Workshop</div><div class="list-meta">4.5 km</div></div><span class="chevron">›</span></div>
+    <div class="list-row"><div class="placeholder-img square">Img</div><div class="list-body"><div class="list-title">Electronics Meetup</div><div class="list-meta">6.0 km</div></div><span class="chevron">›</span></div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+{
+  "source": "HCI-compliant wireframes (v05/v06)",
+  "basedOn": "Stitch project 17554208072889623118",
+  "exportedAt": "2026-05-26T15:49:21.894346Z",
+  "grid": {
+    "columns": 4,
+    "margin": 24,
+    "gutter": 16,
+    "objectSpacing": 8
+  },
+  "screens": [
+    {
+      "id": "S-00",
+      "slug": "s-00-welcome",
+      "title": "Welcome",
+      "html": "html/s-00-welcome.html"
+    },
+    {
+      "id": "S-01",
+      "slug": "s-01-account-check",
+      "title": "Account",
+      "html": "html/s-01-account-check.html"
+    },
+    {
+      "id": "S-10",
+      "slug": "s-10-sign-in",
+      "title": "Sign in",
+      "html": "html/s-10-sign-in.html"
+    },
+    {
+      "id": "S-20",
+      "slug": "s-20-registration-method",
+      "title": "Create account",
+      "html": "html/s-20-registration-method.html"
+    },
+    {
+      "id": "S-23",
+      "slug": "s-23-registration-step-1",
+      "title": "Create account",
+      "html": "html/s-23-registration-step-1.html"
+    },
+    {
+      "id": "S-23-err",
+      "slug": "s-23-step-1-error-state",
+      "title": "Create account",
+      "html": "html/s-23-step-1-error-state.html"
+    },
+    {
+      "id": "S-23",
+      "slug": "s-23-registration-step-2",
+      "title": "Create account",
+      "html": "html/s-23-registration-step-2.html"
+    },
+    {
+      "id": "S-23",
+      "slug": "s-23-registration-summary",
+      "title": "Create account",
+      "html": "html/s-23-registration-summary.html"
+    },
+    {
+      "id": "S-30",
+      "slug": "s-30-home-hub",
+      "title": "Home",
+      "html": "html/s-30-home-hub.html"
+    },
+    {
+      "id": "S-40",
+      "slug": "s-40-scan-item",
+      "title": "Scan item",
+      "html": "html/s-40-scan-item.html"
+    },
+    {
+      "id": "S-44",
+      "slug": "s-44-describe-fault",
+      "title": "Describe the problem",
+      "html": "html/s-44-describe-fault.html"
+    },
+    {
+      "id": "S-43e",
+      "slug": "s-43e-error-not-recognized",
+      "title": "Could not recognize item",
+      "html": "html/s-43e-error-not-recognized.html"
+    },
+    {
+      "id": "S-46",
+      "slug": "s-46-ai-diagnosis-result",
+      "title": "AI diagnosis",
+      "html": "html/s-46-ai-diagnosis-result.html"
+    },
+    {
+      "id": "S-49",
+      "slug": "s-49-choose-repair-path",
+      "title": "Repair options",
+      "html": "html/s-49-choose-repair-path.html"
+    },
+    {
+      "id": "S-50",
+      "slug": "s-50-diy-tutorial",
+      "title": "Repair tutorial",
+      "html": "html/s-50-diy-tutorial.html"
+    },
+    {
+      "id": "S-60",
+      "slug": "s-60-community-list",
+      "title": "Repair caf\u00e9s nearby",
+      "html": "html/s-60-community-list.html"
+    },
+    {
+      "id": "S-61",
+      "slug": "s-61-caf-detail",
+      "title": "Repair caf\u00e9 detail",
+      "html": "html/s-61-caf-detail.html"
+    },
+    {
+      "id": "S-62",
+      "slug": "s-62-help-request-step-1",
+      "title": "Request help",
+      "html": "html/s-62-help-request-step-1.html"
+    },
+    {
+      "id": "S-62-err",
+      "slug": "s-62-step-1-error-state",
+      "title": "Request help",
+      "html": "html/s-62-step-1-error-state.html"
+    },
+    {
+      "id": "S-62",
+      "slug": "s-62-help-request-step-2",
+      "title": "Request help",
+      "html": "html/s-62-help-request-step-2.html"
+    },
+    {
+      "id": "S-62",
+      "slug": "s-62-help-request-summary",
+      "title": "Request help",
+      "html": "html/s-62-help-request-summary.html"
+    },
+    {
+      "id": "S-63",
+      "slug": "s-63-request-sent-confirmation",
+      "title": "Request sent",
+      "html": "html/s-63-request-sent-confirmation.html"
+    },
+    {
+      "id": "S-70",
+      "slug": "s-70-not-worth-repairing",
+      "title": "Not worth repairing",
+      "html": "html/s-70-not-worth-repairing.html"
+    },
+    {
+      "id": "S-80",
+      "slug": "s-80-record-outcome-step-1",
+      "title": "Record outcome",
+      "html": "html/s-80-record-outcome-step-1.html"
+    },
+    {
+      "id": "S-80",
+      "slug": "s-80-record-outcome-step-2",
+      "title": "Record outcome",
+      "html": "html/s-80-record-outcome-step-2.html"
+    },
+    {
+      "id": "S-80",
+      "slug": "s-80-outcome-summary",
+      "title": "Record outcome",
+      "html": "html/s-80-outcome-summary.html"
+    },
+    {
+      "id": "S-90",
+      "slug": "s-90-repair-history-list",
+      "title": "Repair history",
+      "html": "html/s-90-repair-history-list.html"
+    },
+    {
+      "id": "S-100",
+      "slug": "s-100-profile",
+      "title": "Profile",
+      "html": "html/s-100-profile.html"
+    },
+    {
+      "id": "S-101",
+      "slug": "s-101-edit-profile-step-1",
+      "title": "Edit profile",
+      "html": "html/s-101-edit-profile-step-1.html"
+    },
+    {
+      "id": "S-101-err",
+      "slug": "s-101-edit-profile-step-1-error",
+      "title": "Edit profile",
+      "html": "html/s-101-edit-profile-step-1-error.html"
+    },
+    {
+      "id": "S-101",
+      "slug": "s-101-edit-profile-step-2",
+      "title": "Edit profile",
+      "html": "html/s-101-edit-profile-step-2.html"
+    },
+    {
+      "id": "S-101",
+      "slug": "s-101-edit-profile-summary",
+      "title": "Edit profile",
+      "html": "html/s-101-edit-profile-summary.html"
+    },
+    {
+      "id": "S-110",
+      "slug": "s-110-settings",
+      "title": "Settings",
+      "html": "html/s-110-settings.html"
+    }
+  ]
+}

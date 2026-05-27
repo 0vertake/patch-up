@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4c4546",
+                        "secondary-container": "#e1dfdf",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f4f3f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline-variant": "#cfc4c5",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c6c6c6",
+                        "tertiary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "surface": "#f9f9f9",
+                        "on-secondary-container": "#626262",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max_width": "375px",
+                        "margin": "24px",
+                        "gutter": "16px",
+                        "columns": "4",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label": ["Inter"],
+                        "title": ["Inter"],
+                        "body": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar suppression for clean lo-fi look */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex justify-center items-start min-h-screen bg-surface">
+<!-- Mobile Container (375px) -->
+<main class="w-[375px] min-h-[812px] bg-white relative flex flex-col overflow-hidden shadow-none">
+<!-- TopAppBar (ID S-80 & Nav) -->
+<header class="fixed top-0 w-[375px] h-14 bg-surface border-b border-outline-variant flex items-center justify-between px-margin z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary active:opacity-70 cursor-pointer">arrow_back</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-wider">ID S-80</span>
+<h1 class="font-title text-title text-primary">PatchUp</h1>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 mt-14 px-margin pt-unit pb-32 overflow-y-auto">
+<!-- Step Indicator & Header -->
+<div class="mt-4 mb-6">
+<p class="font-label text-label text-secondary mb-1">Step 2 of 2: Summary</p>
+<div class="h-1 w-full bg-surface-container rounded-full">
+<div class="h-full w-full bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Success Message Toast/Banner -->
+<div class="mb-8 p-4 bg-surface-container rounded-lg border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+<p class="font-body text-body text-on-surface">Everything looks good, saved.</p>
+</div>
+<!-- Review Section (Asymmetric Layout) -->
+<section class="space-y-6">
+<h2 class="font-title text-title text-primary">Review Details</h2>
+<!-- Review List Items -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Outcome Card -->
+<div class="p-4 bg-surface-bright border border-outline-variant rounded-lg">
+<p class="font-label text-label text-secondary mb-1">Outcome</p>
+<p class="font-body text-body text-primary font-medium">[Value]</p>
+</div>
+<!-- Notes Card (Visual placeholder for optional value) -->
+<div class="p-4 bg-surface-bright border border-outline-variant rounded-lg relative overflow-hidden">
+<p class="font-label text-label text-secondary mb-1">Notes</p>
+<p class="font-body text-body text-primary italic">[Optional Value]</p>
+<!-- Decorative Abstract Geometric Mask (Lo-Fi style) -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[80px]">description</span>
+</div>
+</div>
+</div>
+<!-- Summary Visual (Placeholder Image) -->
+<div class="mt-8 border border-outline-variant rounded-lg aspect-video bg-surface-container flex flex-col items-center justify-center relative">
+<img alt="A high-contrast grayscale architectural photograph capturing the sharp shadows and clean lines of a brutalist concrete building against a pale morning sky. The image emphasizes structural integrity and minimalist design, mirroring the UI's functional aesthetic. Soft, natural light creates a series of tonal gradients from deep charcoal to bright off-white. The mood is professional, stable, and meticulously organized." class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaxKNlRFhBnOC6obXcWjWRZ4PtkRE4TMfbBZ_jUXyAk42Nf1I-a5nbGKgetG6GpmNhOF-Mnn3xnL-UE3SYCo9-OO9bRMVz5F_RhRQ90X_bQ0bgHH5-S7IPG0UWimX6KL7q9V3KpXcX0UVFCeZGItLgoJIeBNtJ_4hE7f0lqRXnmOcNr90XXcZIa0mjznmHTtGqV-_I-gWCP0YkLfBDPzbRrzl6snBFzSofMOj573Fe_LBV4FitEMV0T4uzZcosbyKw7PH5KedYwVb9"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/80 px-4 py-2 border border-outline rounded-lg">
+<span class="font-label text-label text-primary">Verification Complete</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer Action -->
+<footer class="fixed bottom-0 w-[375px] bg-white p-margin border-t border-outline-variant z-50">
+<button class="w-full py-4 bg-primary text-on-primary font-title text-title rounded-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                Finish
+            </button>
+</footer>
+<!-- Bottom Navigation Bar (Semantic Shell Rule) -->
+<!-- Suppressed for Transactional/Step-based Journey -->
+</main>
+<script>
+        // Simple micro-interaction for button
+        document.querySelector('button').addEventListener('click', function() {
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            setTimeout(() => {
+                this.innerHTML = 'Finish';
+                alert('Process Completed Successfully');
+            }, 1500);
+        });
+    </script>
+</body></html>

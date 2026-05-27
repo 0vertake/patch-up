@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4c4546",
+                        "secondary-container": "#e1dfdf",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f4f3f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline-variant": "#cfc4c5",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c6c6c6",
+                        "tertiary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "surface": "#f9f9f9",
+                        "on-secondary-container": "#626262",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "8px",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max_width": "375px",
+                        "margin": "24px",
+                        "gutter": "16px",
+                        "columns": "4",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label": ["Inter"],
+                        "title": ["Inter"],
+                        "body": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .app-container {
+            width: 375px;
+            height: 812px;
+            background-color: #ffffff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background">
+<div class="app-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-surface dark:bg-surface border-b border-outline-variant flex items-center justify-between px-margin h-14 w-full z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="arrow_back">arrow_back</span>
+<span class="font-title text-[12px] text-secondary">S-23</span>
+</div>
+<h1 class="font-title text-title text-primary dark:text-primary-fixed">PatchUp</h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-14 px-margin pt-unit flex flex-col gap-6">
+<!-- Step Indicator -->
+<section class="mt-4 flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<span class="font-label text-label text-secondary">Step 1 of 3</span>
+<span class="font-label text-[12px] text-on-surface-variant italic">All fields are required</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+</section>
+<!-- Form Title -->
+<section>
+<h2 class="font-title text-title text-on-surface">Personal Details</h2>
+</section>
+<!-- Form Fields -->
+<form class="flex flex-col gap-6">
+<!-- Name Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-label text-on-surface" for="name-input">Name</label>
+<input class="w-full h-12 px-4 border border-outline rounded-DEFAULT bg-surface focus:outline-none focus:border-primary font-body text-body" id="name-input" placeholder="Enter your full name" type="text"/>
+</div>
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-label text-on-surface" for="email-input">Email</label>
+<input class="w-full h-12 px-4 border border-outline rounded-DEFAULT bg-surface focus:outline-none focus:border-primary font-body text-body" id="email-input" placeholder="name@example.com" type="email"/>
+</div>
+<!-- Bento Placeholder for visual rhythm -->
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="h-24 bg-surface-container border border-outline-variant flex items-center justify-center rounded-DEFAULT">
+<span class="font-label text-[12px] text-secondary">Placeholder</span>
+</div>
+<div class="h-24 bg-surface-container border border-outline-variant flex items-center justify-center rounded-DEFAULT">
+<span class="font-label text-[12px] text-secondary">Placeholder</span>
+</div>
+</div>
+</form>
+</main>
+<!-- Fixed Action Bar (Sticky Bottom) -->
+<footer class="px-margin py-6 bg-white flex flex-col gap-4">
+<button class="w-full h-14 bg-[#E0E0E0] text-[#9E9E9E] rounded-DEFAULT font-label text-label cursor-not-allowed flex items-center justify-center gap-2" disabled="">
+                Next
+                <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</footer>
+<!-- BottomNavBar (Suppressed for focused form journey as per UX mandate) -->
+<!-- Suppression: This is a linear transactional journey, nav shell hidden to prioritize content canvas -->
+</div>
+<script>
+        // Simple logic for input interaction (visual feedback only for lo-fi)
+        const inputs = document.querySelectorAll('input');
+        const nextButton = document.querySelector('button');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const allFilled = Array.from(inputs).every(i => i.value.trim() !== '');
+                if (allFilled) {
+                    // This is just for demonstration, requirements asked for it to be DISABLED initially.
+                    // nextButton.disabled = false;
+                    // nextButton.classList.remove('bg-[#E0E0E0]', 'text-[#9E9E9E]');
+                    // nextButton.classList.add('bg-black', 'text-white');
+                }
+            });
+        });
+    </script>
+</body></html>

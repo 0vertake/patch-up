@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, height=812, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#4c4546",
+                    "secondary-container": "#e1dfdf",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "tertiary": "#000000",
+                    "surface-container-low": "#f4f3f3",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-primary-fixed": "#1b1b1b",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "outline-variant": "#cfc4c5",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e2e2e2",
+                    "background": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-dim": "#dadada",
+                    "on-primary-container": "#848484",
+                    "inverse-primary": "#c6c6c6",
+                    "tertiary-container": "#1b1b1b",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container": "#eeeeee",
+                    "surface": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "primary-container": "#1b1b1b",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "secondary-fixed": "#e4e2e2",
+                    "outline": "#7e7576",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5e5e5e",
+                    "on-tertiary-container": "#848484",
+                    "primary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max_width": "375px",
+                    "margin": "24px",
+                    "gutter": "16px",
+                    "columns": "4",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label": ["Inter"],
+                    "title": ["Inter"],
+                    "body": ["Inter"]
+            },
+            "fontSize": {
+                    "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .canvas {
+            width: 375px;
+            height: 812px;
+            background-color: #ffffff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<div class="canvas">
+<!-- TopAppBar (Suppressed Leading Icon because it's a root login state, but maintaining Title) -->
+<header class="fixed top-0 w-full bg-surface text-primary border-b border-outline-variant flex items-center justify-between px-margin h-14 z-10">
+<div class="flex items-center gap-4">
+<h1 class="font-title text-title font-extrabold tracking-tight">PatchUp</h1>
+</div>
+<div class="w-6"></div> <!-- Spacer for symmetry -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-margin pt-32 pb-margin">
+<!-- Hero Illustration Placeholder (Asymmetric Bento Style for Modernity) -->
+<div class="grid grid-cols-4 gap-4 mb-10">
+<div class="col-span-3 h-40 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, #000 1px, transparent 0); background-size: 16px 16px;"></div>
+<span class="font-label text-secondary relative z-10">Visual Concept</span>
+</div>
+<div class="col-span-1 h-40 bg-on-surface border border-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-3xl">build</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="mb-auto">
+<h2 class="font-title text-title text-primary mb-4">Join PatchUp</h2>
+<p class="font-body text-body text-secondary leading-relaxed">
+                    Sign in to see your repair history or create a new account.
+                </p>
+</div>
+<!-- Actions Container -->
+<div class="flex flex-col gap-4 mt-8">
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary h-12 rounded-lg font-label text-label active:scale-95 transition-transform flex items-center justify-center">
+                    I have an account
+                </button>
+<!-- Secondary Action -->
+<button class="w-full bg-transparent border border-outline text-primary h-12 rounded-lg font-label text-label active:scale-95 transition-transform flex items-center justify-center">
+                    I don’t have an account
+                </button>
+</div>
+<!-- Footer Meta -->
+<div class="mt-12 text-center">
+<p class="font-label text-[12px] text-on-surface-variant opacity-60">
+                    Version 1.0.4 • Privacy Policy
+                </p>
+</div>
+</main>
+<!-- Bottom Navigation Shell is Suppressed for Transactional/Login Screen as per Mandate -->
+</div>
+<!-- Background Atmospheric Effect -->
+<script>
+        // Micro-interaction for button press feel or subtle parallax if needed
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.opacity = "0.8";
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.opacity = "1";
+            });
+        });
+    </script>
+</body></html>

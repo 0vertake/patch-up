@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4c4546",
+                        "secondary-container": "#e1dfdf",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f4f3f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline-variant": "#cfc4c5",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c6c6c6",
+                        "tertiary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "surface": "#f9f9f9",
+                        "on-secondary-container": "#626262",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max_width": "375px",
+                        "margin": "24px",
+                        "gutter": "16px",
+                        "columns": "4",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label": ["Inter"],
+                        "title": ["Inter"],
+                        "body": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .mobile-viewport {
+            width: 375px;
+            height: 812px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="mobile-viewport">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-[375px] bg-surface flex items-center justify-between px-margin h-14 border-b border-outline-variant z-10">
+<div class="flex items-center gap-2">
+<span class="font-label text-label text-secondary">ID S-63</span>
+</div>
+<h1 class="font-title text-title text-primary absolute left-1/2 -translate-x-1/2">PatchUp</h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin pt-14 pb-20">
+<!-- Success Icon Placeholder -->
+<div class="w-24 h-24 mb-8 flex items-center justify-center border border-outline rounded-full bg-surface-container-low">
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Typography Content -->
+<div class="text-center space-y-4 max-w-[280px]">
+<h2 class="font-title text-title text-primary">Request Sent</h2>
+<p class="font-body text-body text-secondary">
+                    Your request has been sent to the café. Outcome will be recorded later.
+                </p>
+</div>
+<!-- Asymmetric Visual Anchor (Lo-Fi Pattern) -->
+<div class="mt-12 w-full grid grid-cols-4 gap-4 h-32">
+<div class="col-span-3 border border-outline-variant rounded-lg bg-surface-container-lowest flex items-center justify-center">
+<div class="w-full h-px bg-outline-variant rotate-12"></div>
+</div>
+<div class="col-span-1 border border-outline-variant rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="hourglass_empty">hourglass_empty</span>
+</div>
+</div>
+</main>
+<!-- Persistent Bottom Action Area (Custom logic for focused confirmation screen) -->
+<footer class="absolute bottom-0 w-full px-margin pb-10 pt-4 bg-white">
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-label text-label active:scale-95 transition-transform" onclick="console.log('Navigating Home')">
+                Back to home
+            </button>
+</footer>
+<!-- Bottom Navigation (Suppressed per task context of confirmation splash, but code structure ready) -->
+<!-- Note: "Back to home" is the primary escape, so global nav is hidden to prioritize the 'Success' state -->
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple entry animation for the checkmark
+        document.addEventListener('DOMContentLoaded', () => {
+            const icon = document.querySelector('[data-icon="check_circle"]');
+            if (icon) {
+                icon.style.opacity = '0';
+                icon.style.transform = 'scale(0.5)';
+                icon.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                
+                setTimeout(() => {
+                    icon.style.opacity = '1';
+                    icon.style.transform = 'scale(1)';
+                }, 300);
+            }
+        });
+    </script>
+</body></html>

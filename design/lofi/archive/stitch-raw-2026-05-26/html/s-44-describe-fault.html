@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface-variant": "#4c4546",
+                  "secondary-container": "#e1dfdf",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#e2e2e2",
+                  "on-secondary-fixed": "#1b1c1c",
+                  "tertiary": "#000000",
+                  "surface-container-low": "#f4f3f3",
+                  "on-primary": "#ffffff",
+                  "tertiary-fixed-dim": "#c6c6c6",
+                  "surface-container-lowest": "#ffffff",
+                  "on-background": "#1a1c1c",
+                  "on-primary-fixed": "#1b1b1b",
+                  "on-tertiary-fixed-variant": "#474747",
+                  "outline-variant": "#cfc4c5",
+                  "on-error": "#ffffff",
+                  "surface-bright": "#f9f9f9",
+                  "error-container": "#ffdad6",
+                  "surface-variant": "#e2e2e2",
+                  "background": "#f9f9f9",
+                  "on-error-container": "#93000a",
+                  "secondary-fixed-dim": "#c7c6c6",
+                  "on-primary-fixed-variant": "#474747",
+                  "surface-dim": "#dadada",
+                  "on-primary-container": "#848484",
+                  "inverse-primary": "#c6c6c6",
+                  "tertiary-container": "#1b1b1b",
+                  "primary": "#000000",
+                  "on-secondary-fixed-variant": "#464747",
+                  "surface-container-high": "#e8e8e8",
+                  "surface-container": "#eeeeee",
+                  "surface": "#f9f9f9",
+                  "on-surface": "#1a1c1c",
+                  "primary-container": "#1b1b1b",
+                  "on-tertiary": "#ffffff",
+                  "inverse-surface": "#2f3131",
+                  "on-tertiary-fixed": "#1b1b1b",
+                  "secondary-fixed": "#e4e2e2",
+                  "outline": "#7e7576",
+                  "inverse-on-surface": "#f1f1f1",
+                  "primary-fixed-dim": "#c6c6c6",
+                  "on-secondary": "#ffffff",
+                  "surface-tint": "#5e5e5e",
+                  "on-tertiary-container": "#848484",
+                  "primary-fixed": "#e2e2e2"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "8px",
+                  "xl": "12px",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "max_width": "375px",
+                  "margin": "24px",
+                  "gutter": "16px",
+                  "columns": "4",
+                  "unit": "8px"
+          },
+          "fontFamily": {
+                  "label": ["Inter"],
+                  "title": ["Inter"],
+                  "body": ["Inter"]
+          },
+          "fontSize": {
+                  "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                  "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .mobile-canvas {
+      width: 375px;
+      height: 812px;
+      background-color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="mobile-canvas shadow-2xl">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-[375px] bg-surface flex items-center justify-between px-margin h-14 border-b border-outline-variant z-10">
+<div class="flex items-center gap-4">
+<button class="active:opacity-70 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-title text-title text-primary">Describe Fault</h1>
+</div>
+<span class="font-label text-label text-secondary">ID S-44</span>
+</header>
+<!-- Main Content -->
+<main class="flex-1 mt-14 px-margin pt-unit">
+<!-- ID Indicator -->
+<div class="py-4">
+<span class="font-label text-label text-secondary">ID S-44</span>
+</div>
+<!-- Form Section -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-label text-on-surface" for="fault_description">What is wrong with the item?</label>
+<textarea class="w-full bg-surface border border-outline rounded-lg p-4 font-body text-body text-on-surface focus:outline-none focus:border-primary placeholder:text-secondary-fixed-dim resize-none" id="fault_description" oninput="toggleButtonState(this)" placeholder="Describe the issue in detail..." rows="6"></textarea>
+<p class="font-label text-label text-secondary text-[12px]">Please provide as much detail as possible to help our experts diagnose the issue.</p>
+</div>
+<!-- Visual Placeholder (Bento Style) -->
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 border border-outline-variant rounded-lg flex flex-col items-center justify-center bg-surface-container-low border-dashed">
+<span class="material-symbols-outlined text-secondary" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-label text-[12px] text-secondary mt-2">Add Photo</span>
+</div>
+<div class="h-32 border border-outline-variant rounded-lg flex flex-col items-center justify-center bg-surface-container-low border-dashed">
+<span class="material-symbols-outlined text-secondary" data-icon="videocam">videocam</span>
+<span class="font-label text-[12px] text-secondary mt-2">Add Video</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<footer class="p-margin bg-white">
+<button class="w-full h-12 bg-secondary-fixed-dim text-secondary font-label text-label rounded-lg transition-colors cursor-not-allowed" disabled="" id="continue_btn">
+        Continue
+      </button>
+</footer>
+<!-- Bottom Navigation (Shared Component Placeholder) -->
+<!-- Suppressed due to Transactional/Linear Task Focus per "Destination" Rule -->
+</div>
+<script>
+    function toggleButtonState(textarea) {
+      const btn = document.getElementById('continue_btn');
+      if (textarea.value.trim().length > 0) {
+        btn.disabled = false;
+        btn.classList.remove('bg-secondary-fixed-dim', 'text-secondary', 'cursor-not-allowed');
+        btn.classList.add('bg-primary', 'text-on-primary', 'active:scale-95');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('bg-secondary-fixed-dim', 'text-secondary', 'cursor-not-allowed');
+        btn.classList.remove('bg-primary', 'text-on-primary', 'active:scale-95');
+      }
+    }
+  </script>
+</body></html>

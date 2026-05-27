@@ -1,0 +1,267 @@
+{
+  "source": "Google Stitch",
+  "projectId": "17554208072889623118",
+  "exportedAt": "2026-05-26T15:06:27.810524Z",
+  "screens": [
+    {
+      "stitchScreenId": "872d2c7bad944a5aa391463812f02e60",
+      "title": "S-00 Welcome",
+      "slug": "s-00-welcome",
+      "html": "html/s-00-welcome.html",
+      "screenshot": "screenshots/s-00-welcome.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "9ea30003e54c46eb91ec86d38c630023",
+      "title": "S-01 Account Check",
+      "slug": "s-01-account-check",
+      "html": "html/s-01-account-check.html",
+      "screenshot": "screenshots/s-01-account-check.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "0f3bf21e571f4e5ab1c751485421aea6",
+      "title": "S-10 Sign In",
+      "slug": "s-10-sign-in",
+      "html": "html/s-10-sign-in.html",
+      "screenshot": "screenshots/s-10-sign-in.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "a1b9e72c13df4a07a0f523ff28de74af",
+      "title": "S-100 Profile",
+      "slug": "s-100-profile",
+      "html": "html/s-100-profile.html",
+      "screenshot": "screenshots/s-100-profile.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "412886f8cd344495937bf6d969bd18da",
+      "title": "S-101 Edit Profile",
+      "slug": "s-101-edit-profile",
+      "html": "html/s-101-edit-profile.html",
+      "screenshot": "screenshots/s-101-edit-profile.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "68f09151735f49fcac1f6907e1124b01",
+      "title": "S-20 Registration Method",
+      "slug": "s-20-registration-method",
+      "html": "html/s-20-registration-method.html",
+      "screenshot": "screenshots/s-20-registration-method.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "0bd07ae1ac1e47dc87ff6bffdaa07c46",
+      "title": "S-23 Registration Step 1",
+      "slug": "s-23-registration-step-1",
+      "html": "html/s-23-registration-step-1.html",
+      "screenshot": "screenshots/s-23-registration-step-1.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "989cdd9d01574ea4a1576d091609dada",
+      "title": "S-23 Registration Step 2",
+      "slug": "s-23-registration-step-2",
+      "html": "html/s-23-registration-step-2.html",
+      "screenshot": "screenshots/s-23-registration-step-2.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "3b10424194c7405ba0c9e1ff87333a86",
+      "title": "S-23 Registration Summary",
+      "slug": "s-23-registration-summary",
+      "html": "html/s-23-registration-summary.html",
+      "screenshot": "screenshots/s-23-registration-summary.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "edb3279493d943a8a4d44ff6f704e928",
+      "title": "S-23 Step 1 Error State",
+      "slug": "s-23-step-1-error-state",
+      "html": "html/s-23-step-1-error-state.html",
+      "screenshot": "screenshots/s-23-step-1-error-state.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "92e8c9ed3d7942839648e9445e9c1006",
+      "title": "S-30 Home Hub",
+      "slug": "s-30-home-hub",
+      "html": "html/s-30-home-hub.html",
+      "screenshot": "screenshots/s-30-home-hub.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "c5b163ccb8a04fd993eaaca789e6cf68",
+      "title": "S-40 Scan Item",
+      "slug": "s-40-scan-item",
+      "html": "html/s-40-scan-item.html",
+      "screenshot": "screenshots/s-40-scan-item.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "5bd244f970df42e797bdc13f4674eee0",
+      "title": "S-44 Describe Fault",
+      "slug": "s-44-describe-fault",
+      "html": "html/s-44-describe-fault.html",
+      "screenshot": "screenshots/s-44-describe-fault.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "5d7b46544a6644789f70508c235a286c",
+      "title": "S-46 AI Diagnosis Result",
+      "slug": "s-46-ai-diagnosis-result",
+      "html": "html/s-46-ai-diagnosis-result.html",
+      "screenshot": "screenshots/s-46-ai-diagnosis-result.png",
+      "width": "780",
+      "height": "1800",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "2398502d3a9b4697b8e3a119d5cab52b",
+      "title": "S-49 Choose Repair Path",
+      "slug": "s-49-choose-repair-path",
+      "html": "html/s-49-choose-repair-path.html",
+      "screenshot": "screenshots/s-49-choose-repair-path.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "cdc5688bbb394078865797bca616d14a",
+      "title": "S-50 DIY Tutorial",
+      "slug": "s-50-diy-tutorial",
+      "html": "html/s-50-diy-tutorial.html",
+      "screenshot": "screenshots/s-50-diy-tutorial.png",
+      "width": "780",
+      "height": "2716",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "e425babcbf3945fbb06c4059590321f2",
+      "title": "S-60 Community List",
+      "slug": "s-60-community-list",
+      "html": "html/s-60-community-list.html",
+      "screenshot": "screenshots/s-60-community-list.png",
+      "width": "780",
+      "height": "1784",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "52405c9e0da0462f9af602ee2721b361",
+      "title": "S-61 Caf\u00e9 Detail",
+      "slug": "s-61-caf-detail",
+      "html": "html/s-61-caf-detail.html",
+      "screenshot": "screenshots/s-61-caf-detail.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "ead7161aaf964e48b75adaa134a49bac",
+      "title": "S-62 Help Request Step 1",
+      "slug": "s-62-help-request-step-1",
+      "html": "html/s-62-help-request-step-1.html",
+      "screenshot": "screenshots/s-62-help-request-step-1.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "cc09a1e6e33f4e7b9f78d13f335df6d6",
+      "title": "S-62 Help Request Summary",
+      "slug": "s-62-help-request-summary",
+      "html": "html/s-62-help-request-summary.html",
+      "screenshot": "screenshots/s-62-help-request-summary.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "99f712bbad6e454d87b5761fd210f5cd",
+      "title": "S-62 Step 1 Error State",
+      "slug": "s-62-step-1-error-state",
+      "html": "html/s-62-step-1-error-state.html",
+      "screenshot": "screenshots/s-62-step-1-error-state.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "d346e797fa8747eda285657ac825d4a2",
+      "title": "S-63 Request Sent Confirmation",
+      "slug": "s-63-request-sent-confirmation",
+      "html": "html/s-63-request-sent-confirmation.html",
+      "screenshot": "screenshots/s-63-request-sent-confirmation.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "6efa5c77412042c1bd933928cbd715b1",
+      "title": "S-70 Not Worth Repairing",
+      "slug": "s-70-not-worth-repairing",
+      "html": "html/s-70-not-worth-repairing.html",
+      "screenshot": "screenshots/s-70-not-worth-repairing.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "310e58375cdf4b0ba987e2e751328389",
+      "title": "S-80 Outcome Summary",
+      "slug": "s-80-outcome-summary",
+      "html": "html/s-80-outcome-summary.html",
+      "screenshot": "screenshots/s-80-outcome-summary.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "73e0c22805254750b0f3f0a578d3ab39",
+      "title": "S-80 Record Outcome Step 1",
+      "slug": "s-80-record-outcome-step-1",
+      "html": "html/s-80-record-outcome-step-1.html",
+      "screenshot": "screenshots/s-80-record-outcome-step-1.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    },
+    {
+      "stitchScreenId": "4671e06ab720454c806b734b5dc292ad",
+      "title": "S-90 Repair History List",
+      "slug": "s-90-repair-history-list",
+      "html": "html/s-90-repair-history-list.html",
+      "screenshot": "screenshots/s-90-repair-history-list.png",
+      "width": "780",
+      "height": "1768",
+      "deviceType": "MOBILE"
+    }
+  ]
+}

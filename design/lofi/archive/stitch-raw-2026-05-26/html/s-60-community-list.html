@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, height=812, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            width: 375px;
+            margin: 0 auto;
+            min-height: 812px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#4c4546",
+                        "secondary-container": "#e1dfdf",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f4f3f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "outline-variant": "#cfc4c5",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#848484",
+                        "inverse-primary": "#c6c6c6",
+                        "tertiary-container": "#1b1b1b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "surface": "#f9f9f9",
+                        "on-secondary-container": "#626262",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-surface": "#1a1c1c",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline": "#7e7576",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5e5e5e",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "8px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max_width": "375px",
+                        "margin": "24px",
+                        "gutter": "16px",
+                        "columns": "4",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label": ["Inter"],
+                        "title": ["Inter"],
+                        "body": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full bg-surface border-b border-outline-variant flex items-center justify-between px-margin h-14 z-50">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">ID S-60</span>
+</div>
+<h1 class="font-title text-title text-primary">Repair Cafés</h1>
+<div class="w-6"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content -->
+<main class="pt-20 pb-24 px-margin">
+<!-- Search/Filter Placeholder -->
+<div class="mb-6 flex items-center border border-outline px-4 py-3 rounded-lg bg-white">
+<span class="material-symbols-outlined text-secondary mr-2" data-icon="search">search</span>
+<span class="font-body text-secondary">Search community events...</span>
+</div>
+<!-- List Section -->
+<div class="space-y-4">
+<!-- Row 1: Downtown Repair Hub -->
+<div class="flex items-center p-4 border border-outline rounded-lg bg-white active:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center mr-4 border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="handyman">handyman</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title text-body font-bold text-primary">Downtown Repair Hub</h3>
+<p class="font-label text-secondary">Every Saturday • 10:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Row 2: Central Library Repair Day -->
+<div class="flex items-center p-4 border border-outline rounded-lg bg-white active:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center mr-4 border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="local_library">local_library</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title text-body font-bold text-primary">Central Library Repair Day</h3>
+<p class="font-label text-secondary">Monthly • First Sunday</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Row 3: Eastside Makerspace -->
+<div class="flex items-center p-4 border border-outline rounded-lg bg-white active:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center mr-4 border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title text-body font-bold text-primary">Eastside Makerspace</h3>
+<p class="font-label text-secondary">Tue &amp; Thu • 6:00 PM</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Asymmetric Bento-style Visual Placeholder -->
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="col-span-2 border border-outline rounded-lg h-32 bg-surface-container-low flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 10px 10px;"></div>
+<span class="font-label text-secondary uppercase tracking-widest relative z-10">Upcoming Global Workshop</span>
+</div>
+<div class="aspect-square border border-outline rounded-lg bg-surface-container flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-label text-center text-xs">Join as Mentor</span>
+</div>
+<div class="aspect-square border border-outline rounded-lg bg-primary text-on-primary flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined mb-2" data-icon="add_circle">add_circle</span>
+<span class="font-label text-center text-xs">Post Event</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<!-- Determined active tab: History (used as Community context fallback based on prompt requirements) -->
+<nav class="fixed bottom-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center h-16 px-margin z-50">
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-label">Home</span>
+</div>
+<!-- Active Tab: 'History' mapped to Community List context -->
+<div class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-label text-label">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-label">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for list items
+        document.querySelectorAll('main > div > div').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.backgroundColor = '#eeeeee';
+                setTimeout(() => {
+                    item.style.backgroundColor = '#ffffff';
+                }, 150);
+            });
+        });
+    </script>
+</body></html>

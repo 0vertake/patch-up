@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface-variant": "#4c4546",
+                  "secondary-container": "#e1dfdf",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#e2e2e2",
+                  "on-secondary-fixed": "#1b1c1c",
+                  "tertiary": "#000000",
+                  "surface-container-low": "#f4f3f3",
+                  "on-primary": "#ffffff",
+                  "tertiary-fixed-dim": "#c6c6c6",
+                  "surface-container-lowest": "#ffffff",
+                  "on-background": "#1a1c1c",
+                  "on-primary-fixed": "#1b1b1b",
+                  "on-tertiary-fixed-variant": "#474747",
+                  "outline-variant": "#cfc4c5",
+                  "on-error": "#ffffff",
+                  "surface-bright": "#f9f9f9",
+                  "error-container": "#ffdad6",
+                  "surface-variant": "#e2e2e2",
+                  "background": "#f9f9f9",
+                  "on-error-container": "#93000a",
+                  "secondary-fixed-dim": "#c7c6c6",
+                  "on-primary-fixed-variant": "#474747",
+                  "surface-dim": "#dadada",
+                  "on-primary-container": "#848484",
+                  "inverse-primary": "#c6c6c6",
+                  "tertiary-container": "#1b1b1b",
+                  "primary": "#000000",
+                  "on-secondary-fixed-variant": "#464747",
+                  "surface-container-high": "#e8e8e8",
+                  "surface-container": "#eeeeee",
+                  "surface": "#f9f9f9",
+                  "on-surface": "#1a1c1c",
+                  "primary-container": "#1b1b1b",
+                  "on-tertiary": "#ffffff",
+                  "inverse-surface": "#2f3131",
+                  "on-tertiary-fixed": "#1b1b1b",
+                  "secondary-fixed": "#e4e2e2",
+                  "outline": "#7e7576",
+                  "inverse-on-surface": "#f1f1f1",
+                  "primary-fixed-dim": "#c6c6c6",
+                  "on-secondary": "#ffffff",
+                  "surface-tint": "#5e5e5e",
+                  "on-tertiary-container": "#848484",
+                  "primary-fixed": "#e2e2e2"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "max_width": "375px",
+                  "margin": "24px",
+                  "gutter": "16px",
+                  "columns": "4",
+                  "unit": "8px"
+          },
+          "fontFamily": {
+                  "label": ["Inter"],
+                  "title": ["Inter"],
+                  "body": ["Inter"]
+          },
+          "fontSize": {
+                  "label": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                  "title": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .canvas {
+      width: 375px;
+      height: 812px;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+    }
+    .selected-card {
+      border: 2px solid #000000 !important;
+      background-color: #eeeeee !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="canvas">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full bg-surface border-b border-outline-variant flex items-center justify-between px-margin h-14 z-50">
+<div class="flex items-center gap-2">
+<button class="active:opacity-70">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-label text-label text-secondary">S-49</span>
+</div>
+<h1 class="font-title text-title text-primary font-bold">PatchUp</h1>
+<div class="w-6"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 mt-14 px-margin pt-8 pb-32 overflow-y-auto">
+<!-- Screen Heading -->
+<section class="mb-8">
+<h2 class="font-title text-title text-on-surface mb-2">How would you like to fix it?</h2>
+<p class="font-body text-body text-secondary">Select an option to proceed with your repair journey.</p>
+</section>
+<!-- Selection Cards -->
+<div class="space-y-4">
+<!-- DIY Guide Card -->
+<div class="path-card group cursor-pointer border border-outline p-4 rounded-lg bg-white flex items-start gap-4 transition-all hover:bg-surface-container-low" onclick="selectPath(this, 'diy')">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label text-label text-on-surface font-bold">DIY Guide</h3>
+<p class="font-label text-label text-secondary mt-1">Step-by-step instructions for a manual fix.</p>
+</div>
+<div class="radio-indicator w-5 h-5 border border-outline rounded-full flex items-center justify-center group-[.selected-card]:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary hidden group-[.selected-card]:block"></div>
+</div>
+</div>
+<!-- Repair Cafe Card -->
+<div class="path-card group cursor-pointer border border-outline p-4 rounded-lg bg-white flex items-start gap-4 transition-all hover:bg-surface-container-low" onclick="selectPath(this, 'cafe')">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label text-label text-on-surface font-bold">Find a Repair Café</h3>
+<p class="font-label text-label text-secondary mt-1">Get expert help at a local community center.</p>
+</div>
+<div class="radio-indicator w-5 h-5 border border-outline rounded-full flex items-center justify-center group-[.selected-card]:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary hidden group-[.selected-card]:block"></div>
+</div>
+</div>
+<!-- Not Worth Repairing Card -->
+<div class="path-card group cursor-pointer border border-outline p-4 rounded-lg bg-white flex items-start gap-4 transition-all hover:bg-surface-container-low" onclick="selectPath(this, 'not_worth')">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary">delete_outline</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label text-label text-on-surface font-bold">Not worth repairing</h3>
+<p class="font-label text-label text-secondary mt-1">Recycling options or trade-in assessment.</p>
+</div>
+<div class="radio-indicator w-5 h-5 border border-outline rounded-full flex items-center justify-center group-[.selected-card]:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary hidden group-[.selected-card]:block"></div>
+</div>
+</div>
+</div>
+<!-- Placeholder Illustration -->
+<div class="mt-12 bg-surface-container h-40 rounded-lg flex flex-col items-center justify-center border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="20" id="grid" patternunits="userSpaceOnUse" width="20">
+<path d="M 20 0 L 0 0 0 20" fill="none" stroke="black" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<span class="material-symbols-outlined text-outline text-4xl mb-2">settings_suggest</span>
+<span class="font-label text-label text-outline">Selection Support Visualization</span>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 w-full bg-surface px-margin py-6 border-t border-outline-variant z-50">
+<button class="w-full h-12 bg-outline-variant text-secondary font-label text-label rounded-lg transition-colors cursor-not-allowed" disabled="" id="continueBtn">
+        Continue
+      </button>
+</div>
+</div>
+<script>
+    let selectedValue = null;
+
+    function selectPath(element, value) {
+      // Remove selection from all cards
+      const cards = document.querySelectorAll('.path-card');
+      cards.forEach(card => card.classList.remove('selected-card'));
+      
+      // Add selection to clicked card
+      element.classList.add('selected-card');
+      selectedValue = value;
+
+      // Enable the continue button
+      const btn = document.getElementById('continueBtn');
+      btn.disabled = false;
+      btn.classList.remove('bg-outline-variant', 'text-secondary', 'cursor-not-allowed');
+      btn.classList.add('bg-primary', 'text-on-primary', 'active:opacity-80');
+    }
+  </script>
+</body></html>
